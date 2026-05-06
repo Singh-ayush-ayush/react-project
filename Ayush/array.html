@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Methods</title>
+    <style>
+        /* Centering the content */
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f2f5;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        input {
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            outline: none;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        div {
+            margin-top: 15px;
+            font-size: 1.1rem;
+            color: #444;
+        }
+    </style>
+</head>
+<body>
+    <h1>Enter 5 Element and get biggest number</h1>
+
+    <input id="arrayInput" type="text" minlength="2"  placeholder="enter 5 element for array">
+    
+    <button id="arraySubmit"> click</button>
+    <div id="showResult"></div> 
+    <div id="biggestArry"></div>
+
+    <script>
+         const arr1 = [];
+         const Input = document.getElementById("arrayInput");
+         const Submit = document.getElementById("arraySubmit");
+         const result = document.getElementById("showResult");
+         const bigArry = document.getElementById("biggestArry");
+
+         arraySubmit.addEventListener("click", () => {
+            arr1.length = 0;
+
+            const values = Input.value;
+            const splitNum = values.split("");
+            const arrValue = splitNum.map(Number);
+            
+            // Pouring values into arr1
+            arr1.push(...arrValue);
+        
+            // Calculate biggest
+            const biggest = Math.max(...arr1);
+
+            // Update your existing divs instead of creating new ones
+            // This keeps the screen clean!
+            result.innerText = `Array is: [${arr1}]`;
+            bigArry.innerText = `The biggest number is: ${biggest}`;
+
+            console.log(biggest);
+            console.log(arr1);
+            Input.value = '';
+         });
+    </script>
+</body>
+</html>
